@@ -137,3 +137,66 @@ Make sure npm is installed globally (`npm -v` to verify).
 - Ensure backend is running before starting the frontend.  
 
 ✅ Project is ready! Open your browser at [http://localhost:3000](http://localhost:3000) to view the frontend.
+
+
+---
+
+## Running Tests (Backend)
+
+The backend uses **pytest** for testing.
+
+### Run all tests
+From the `evt-backend` directory:
+
+```bash
+pytest
+```
+
+Example output:
+
+```text
+========================================================================== test session starts ===========================================================================
+platform linux -- Python 3.13.6, pytest-8.4.1, pluggy-1.6.0
+rootdir: /home/shakir/evt-server/evt-backend
+configfile: pytest.ini
+plugins: asyncio-1.1.0, typeguard-4.4.4, anyio-4.10.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 60 items                                                                                                                                                       
+
+test_ai_detection.py ........                                                                                                                                      [ 13%]
+test_auth.py ..................                                                                                                                                    [ 43%]
+test_db_connection.py ...                                                                                                                                          [ 48%]
+test_estimate.py ..                                                                                                                                                [ 51%]
+test_password_reset.py ..........                                                                                                                                  [ 68%]
+test_pdf_generation.py ....                                                                                                                                        [ 75%]
+test_upload.py .                                                                                                                                                   [ 76%]
+test_user.py ............                                                                                                                                          [ 96%]
+test_weighting.py ..                                                                                                                                               [100%]
+
+=========================================================================== 60 passed in 0.69s ===========================================================================
+```
+
+### Run a specific test file
+For example, to run only `test_auth.py`:
+
+```bash
+pytest tests/test_auth.py
+```
+
+Example output:
+
+```text
+========================================================================== test session starts ===========================================================================
+platform linux -- Python 3.13.6, pytest-8.4.1, pluggy-1.6.0
+rootdir: /home/shakir/evt-server/evt-backend
+configfile: pytest.ini
+plugins: asyncio-1.1.0, typeguard-4.4.4, anyio-4.10.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 18 items                                                                                                                                                       
+
+test_auth.py ..................                                                                                                                                    [100%]
+
+=========================================================================== 18 passed in 0.42s ===========================================================================
+```
+
+✅ This helps when debugging or running only a subset of tests.
